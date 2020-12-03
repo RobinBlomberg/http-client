@@ -6,17 +6,19 @@ import { Client } from './index.js';
 const PORT = 3000;
 
 const server = Http.createServer(async(req, res) => {
-  const stream = new Stream(req);
-  const data = await stream.text();
-  res.end(data);
+  if (req.method === 'POST' && req.url === '/User') {
+    const stream = new Stream(req);
+    const data = await stream.text();
+    res.end(data);
+  }
 });
 
 server.listen(PORT);
 
 (async() => {
-  const client = new Client();
+  const client = new Client(`http://localhost:${PORT}`);
 
-  const req = await client.post(`http://localhost:${PORT}`, {
+  const req = await client.post('/User', {
     body: '{"name":42}',
     headers: {
       'Content-Type': 'application/json'

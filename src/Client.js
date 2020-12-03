@@ -1,14 +1,25 @@
 /**
- * @typedef {import('../types').Method} Method
- * @typedef {import('../types').RequestOptions} RequestOptions
+ * @typedef {import('./types').Method} Method
+ * @typedef {import('./types').RequestOptions} RequestOptions
  */
 import * as Http from 'http';
+import { Url } from '@robinblomberg/url';
 import { Response } from './Response.js';
 
 /**
  * A HTTP client.
  */
 export class Client {
+  /** @type {string} */
+  #baseUrl;
+
+  /**
+   * @param {string} [baseUrl]
+   */
+  constructor(baseUrl = '') {
+    this.#baseUrl = Url.normalize(baseUrl);
+  }
+
   /**
    * @param {string} url
    * @param {RequestOptions} [options]
@@ -89,7 +100,9 @@ export class Client {
    */
   request(method, url, options = {}) {
     return new Promise((resolve) => {
-      const req = Http.request(url, { method }, (res) => {
+      const requestUrl = Url.join(this.#baseUrl, url);
+
+      const req = Http.request(requestUrl, { method }, (res) => {
         const response = new Response(res);
         resolve(response);
       });

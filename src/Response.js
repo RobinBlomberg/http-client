@@ -1,13 +1,12 @@
 /**
  * @typedef {import('http').IncomingMessage} IncomingMessage
- * @typedef {import('../types').Headers} Headers
- * @typedef {import('../types').Response} ResponseImpl
- * @typedef {import('../types').StatusCode} StatusCode
+ * @typedef {import('./types').Headers} Headers
+ * @typedef {import('./types').StatusCode} StatusCode
  */
 import { Stream } from '@robinblomberg/stream';
 
 /**
- * @implements {ResponseImpl}
+ * A HTTP IncomingMessage wrapper.
  */
 export class Response extends Stream {
   /** @type {Headers} */
