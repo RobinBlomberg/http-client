@@ -3,9 +3,9 @@
  */
 export class Client {
     /**
-     * @param {string} [baseUrl]
+     * @param {string | null} [baseUrl]
      */
-    constructor(baseUrl?: string | undefined);
+    constructor(baseUrl?: string | null | undefined);
     /**
      * @param {string} url
      * @param {RequestOptions} [options]

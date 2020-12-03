@@ -10,14 +10,16 @@ import { Response } from './Response.js';
  * A HTTP client.
  */
 export class Client {
-  /** @type {string} */
+  /** @type {string | null} */
   #baseUrl;
 
   /**
-   * @param {string} [baseUrl]
+   * @param {string | null} [baseUrl]
    */
-  constructor(baseUrl = '') {
-    this.#baseUrl = Url.normalize(baseUrl);
+  constructor(baseUrl) {
+    this.#baseUrl = baseUrl
+      ? Url.normalize(baseUrl)
+      : null;
   }
 
   /**
