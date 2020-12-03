@@ -1,6 +1,6 @@
-import * as Assert from 'assert';
 import * as Http from 'http';
 import { Stream } from '@robinblomberg/stream';
+import { equal } from '@robinblomberg/test';
 import { Client } from './index.js';
 
 const PORT = 3000;
@@ -28,7 +28,7 @@ server.listen(PORT);
   // eslint-disable-next-line no-unused-vars
   const { headers: { date, ...otherHeaders }, ...otherProperties } = req;
 
-  Assert.deepStrictEqual(
+  equal(
     {
       headers: otherHeaders,
       ...otherProperties
@@ -44,7 +44,7 @@ server.listen(PORT);
       url: ''
     }
   );
-  Assert.deepStrictEqual(
+  equal(
     await req.json(),
     {
       name: 42

@@ -100,7 +100,9 @@ export class Client {
    */
   request(method, url, options = {}) {
     return new Promise((resolve) => {
-      const requestUrl = Url.join(this.#baseUrl, url);
+      const requestUrl = this.#baseUrl
+        ? Url.join(this.#baseUrl, url)
+        : url;
 
       const req = Http.request(requestUrl, { method }, (res) => {
         const response = new Response(res);
