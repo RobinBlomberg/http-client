@@ -1,6 +1,8 @@
 /// <reference types="node" />
 /**
  * A HTTP IncomingMessage wrapper.
+ *
+ * @since 0.1.0
  */
 export class Response extends Stream {
     /**

@@ -23,6 +23,9 @@ export class Client {
   }
 
   /**
+   * Sends a CONNECT request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
@@ -32,6 +35,9 @@ export class Client {
   }
 
   /**
+   * Sends a DELETE request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
@@ -41,6 +47,9 @@ export class Client {
   }
 
   /**
+   * Sends a GET request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
@@ -50,6 +59,9 @@ export class Client {
   }
 
   /**
+   * Sends a HEAD request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
@@ -59,6 +71,9 @@ export class Client {
   }
 
   /**
+   * Sends a OPTIONS request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
@@ -68,6 +83,9 @@ export class Client {
   }
 
   /**
+   * Sends a PATCH request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
@@ -77,6 +95,9 @@ export class Client {
   }
 
   /**
+   * Sends a POST request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
@@ -86,6 +107,9 @@ export class Client {
   }
 
   /**
+   * Sends a PUT request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
@@ -95,6 +119,9 @@ export class Client {
   }
 
   /**
+   * Sends a HTTP request.
+   *
+   * @since 0.1.0
    * @param {Method} method
    * @param {string} url
    * @param {RequestOptions} [options]
@@ -128,6 +155,9 @@ export class Client {
   }
 
   /**
+   * Sends a TRACE request.
+   *
+   * @since 0.1.0
    * @param {string} url
    * @param {RequestOptions} [options]
    * @return {Promise<Response>}
