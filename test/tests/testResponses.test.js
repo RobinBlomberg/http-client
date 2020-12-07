@@ -1,24 +1,24 @@
 import * as Http from 'http';
 import { Stream } from '@robinblomberg/stream';
 import { equal } from '@robinblomberg/test';
-import { Client } from './index.js';
+import { Client } from '../../lib/index.js';
 
 const PORT = 3000;
 
-const server = Http.createServer(async(req, res) => {
-  if (req.method === 'POST' && req.url === '/User') {
-    const stream = new Stream(req);
-    const data = await stream.text();
-    res.end(data);
-  }
-});
+export const testResponses = async() => {
+  const server = Http.createServer(async(req, res) => {
+    if (req.method === 'POST' && req.url === '/User') {
+      const stream = new Stream(req);
+      const data = await stream.text();
+      res.end(data);
+    }
+  });
 
-server.listen(PORT);
+  server.listen(PORT);
 
-(async() => {
   const client = new Client(`http://localhost:${PORT}`);
 
-  const req = await client.post('/User', {
+  const res = await client.post('/User', {
     body: '{"name":42}',
     headers: {
       'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ server.listen(PORT);
   });
 
   // eslint-disable-next-line no-unused-vars
-  const { headers: { date, ...otherHeaders }, ...otherProperties } = req;
+  const { headers: { date, ...otherHeaders }, ...otherProperties } = res;
 
   equal(
     {
@@ -45,11 +45,11 @@ server.listen(PORT);
     }
   );
   equal(
-    await req.json(),
+    await res.json(),
     {
       name: 42
     }
   );
 
   server.close();
-})();
+};
