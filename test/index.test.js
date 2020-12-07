@@ -1,3 +1,4 @@
+import { test } from '@robinblomberg/test';
 import { runTests } from './tests/index.test.js';
 
-runTests();
+test('@robinblomberg/http-client', runTests)();

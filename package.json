@@ -1,12 +1,12 @@
 {
   "name": "@robinblomberg/http-client",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Robin Blomberg",
   "type": "module",
   "main": "lib/index.js",
   "types": "main.d.ts",
   "dependencies": {
-    "@robinblomberg/stream": "^0.1.6",
+    "@robinblomberg/stream": "^0.1.7",
     "@robinblomberg/url": "^0.7.9",
     "@types/eslint": "^7.2.6"
   },
